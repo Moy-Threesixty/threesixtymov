@@ -1,0 +1,30 @@
+THREESIXTY · SESSIONS — cómo montarlo
+=====================================
+
+1) ANTES DE SUBIR (en index.html, sección "CONFIGURACIÓN" al final del archivo)
+   - WHATSAPP = "1XXXXXXXXXX"  -> tu número con código de país, sin +, espacios ni guiones.
+   - Textos de cada foto: title (nombre) y meta (tipo · lugar · año).
+
+2) FOTOS (JPG, en blanco y negro o a color: la página las pasa a B/N sola)
+   Ancho ~2000 px, menos de 500 KB cada una. Nombres exactos:
+
+   images/couples/cover.jpg    <- fondo al pasar el cursor por "Couples"
+   images/couples/01.jpg, 02.jpg, 03.jpg
+   images/family/cover.jpg
+   images/family/01.jpg, 02.jpg
+   images/portraits/cover.jpg
+   images/portraits/01.jpg, 02.jpg
+   images/street/cover.jpg
+   images/street/01.jpg, 02.jpg
+
+   Si falta una foto, se ve un gris en su lugar. Para agregar más fotos a una
+   categoría, copia una línea { file: ..., title: ..., meta: ... } en index.html.
+
+3) SUBIR A NAMECHEAP
+   a. cPanel -> File Manager -> public_html
+   b. Upload -> sube sessions.zip
+   c. Clic derecho en el zip -> Extract  (queda public_html/sessions/)
+   d. Borra el zip y abre tudominio.com/sessions
+
+4) DESPUÉS
+   Agrega un link "Sessions" en el menú o footer de tu home apuntando a /sessions
