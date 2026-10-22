@@ -101,6 +101,8 @@ h2.big{margin:0;font-weight:500;font-size:clamp(40px,6vw,88px);line-height:.95;l
 .catName{display:flex;justify-content:space-between;align-items:baseline;width:100%;font-size:30px;font-weight:500;letter-spacing:-.035em}
 .catName span:last-child{font-size:20px}
 .items{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-flow:row dense;gap:28px 16px;align-items:stretch}
+.items.videos{grid-template-columns:repeat(var(--n,4),minmax(0,1fr))}
+@media (max-width:699px){.items.videos{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:var(--pad);gap:10px;margin:0 calc(-1 * var(--pad));padding:0 var(--pad) 8px;scrollbar-width:none}.items.videos::-webkit-scrollbar{display:none}.items.videos figure{flex:0 0 72%;scroll-snap-align:start}}
 .items figure{min-width:0}
 .items figure .frame{aspect-ratio:4/5;height:auto}
 .items figure.wide{grid-column:span 2}
@@ -495,6 +497,7 @@ var PROYECTOS = [
     { file: "07.jpg", when: "[Fecha]", brand: "[Cliente]", project: "[Propiedad]" }
   ] },
   { id: "motion", name: "Motion", unit: "videos", tone: ["#2F2F2C","#8C8C86"], items: [
+    { video: "05.mp4", file: "05.jpg", when: "Octubre 2026", brand: "Letty's Authentic Mexican Cocina", project: "Reel · Terraza" },
     { video: "01.mp4", file: "01.jpg", when: "[Fecha]", brand: "[Cliente]", project: "Reel · Broker" },
     { video: "02.mp4", file: "02.jpg", when: "[Fecha]", brand: "[Cliente]", project: "Reel · Broker" },
     { video: "03.mp4", file: "03.jpg", when: "[Fecha]", brand: "[Cliente]", project: "Reel · Real Estate" },
@@ -610,6 +613,10 @@ var PROYECTOS = [
       if (!w && !b && !pr) return '';
       return '<figcaption>' + (w ? '<span class="mono">' + esc(w) + '</span>' : '') + (b ? '<b>' + esc(b) + '</b>' : '') + (pr ? '<span>' + esc(pr) + '</span>' : '') + '</figcaption>';
     }
+    // Carpeta solo de videos: todos en una fila (computadora) o en carrusel deslizable (teléfono)
+    var onlyVid = c.items.every(function(it){ return it.video; });
+    items.classList.toggle('videos', onlyVid);
+    items.style.setProperty('--n', Math.min(c.items.length, 5));
     items.innerHTML = c.items.map(function(it){
       if (it.video) {
         var base = 'images/proyectos/' + c.id + '/';
