@@ -47,7 +47,11 @@ h2.big{margin:0;font-weight:500;font-size:clamp(40px,6vw,88px);line-height:.95;l
 .hero nav{display:flex;gap:28px;font-size:15px}
 .hero nav a{text-decoration:none}
 .hero nav a:hover{opacity:.7}
-.menuBtn{margin-left:auto;display:flex;align-items:center;gap:10px;background:transparent;color:var(--paper);border:1px solid rgba(245,245,243,.35);border-radius:999px;padding:6px 16px 6px 6px;min-height:44px;cursor:pointer;font-size:15px}
+.langSw{margin-left:auto;display:flex;border:1px solid rgba(245,245,243,.35);border-radius:999px;padding:3px;gap:2px}
+.langSw button{background:transparent;color:rgba(245,245,243,.6);border:0;border-radius:999px;min-width:40px;min-height:38px;font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;cursor:pointer;transition:background .2s,color .2s}
+.langSw button.on{background:var(--paper);color:var(--ink)}
+.langSw button:not(.on):hover{color:var(--paper)}
+.menuBtn{display:flex;align-items:center;gap:10px;background:transparent;color:var(--paper);border:1px solid rgba(245,245,243,.35);border-radius:999px;padding:6px 16px 6px 6px;min-height:44px;cursor:pointer;font-size:15px}
 .menuBtn .thumb{width:28px;height:30px;border-radius:999px;background:url(images/hero-desktop.jpg) center/cover;transition:width .45s cubic-bezier(.2,.8,.2,1)}
 .menuBtn:hover .thumb{width:64px}
 .mark{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;pointer-events:none}
@@ -264,11 +268,12 @@ footer{padding:64px var(--pad) 40px;display:flex;flex-direction:column;gap:32px}
 
   <header>
     <nav aria-label="Principal">
-      <a href="#proyectos">Proyectos</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#proyectos" data-en="Projects">Proyectos</a>
+      <a href="#servicios" data-en="Services">Servicios</a>
+      <a href="#contacto" data-en="Contact">Contacto</a>
     </nav>
-    <button class="menuBtn" id="openMenu" type="button" aria-haspopup="dialog" aria-controls="menu"><span class="thumb" aria-hidden="true"></span>Menú</button>
+    <div class="langSw" role="group" aria-label="Idioma / Language"><button type="button" data-l="es" lang="es">ES</button><button type="button" data-l="en" lang="en">EN</button></div>
+    <button class="menuBtn" id="openMenu" type="button" aria-haspopup="dialog" aria-controls="menu"><span class="thumb" aria-hidden="true"></span><span data-en="Menu">Menú</span></button>
   </header>
 
   <div class="mark" aria-hidden="true"><div>threesixty<span class="pt" aria-hidden="true"></span></div></div>
@@ -276,10 +281,10 @@ footer{padding:64px var(--pad) 40px;display:flex;flex-direction:column;gap:32px}
 
   <div class="heroFoot">
     <div>
-      <p class="claim">Lo que ya haces bien, que se vea.</p>
-      <p class="sub" aria-label="Rumbo. Imagen. Movimiento.">Rumbo<span class="pt" aria-hidden="true"></span>Imagen<span class="pt" aria-hidden="true"></span>Movimiento<span class="pt g" aria-hidden="true"></span></p>
+      <p class="claim" data-en="What you already do well, let it&nbsp;show.">Lo que ya haces bien, que se vea.</p>
+      <p class="sub" aria-label="Rumbo. Imagen. Movimiento." data-en-aria="Direction. Image. Movement." data-en="Direction<span class=&quot;pt&quot; aria-hidden=&quot;true&quot;></span>Image<span class=&quot;pt&quot; aria-hidden=&quot;true&quot;></span>Movement<span class=&quot;pt g&quot; aria-hidden=&quot;true&quot;></span>">Rumbo<span class="pt" aria-hidden="true"></span>Imagen<span class="pt" aria-hidden="true"></span>Movimiento<span class="pt g" aria-hidden="true"></span></p>
     </div>
-    <a class="btn light" href="#contacto">¿Le damos? <span class="d"></span></a>
+    <a class="btn light" href="#contacto"><span data-en="Shall we?">¿Le damos?</span> <span class="d"></span></a>
   </div>
 </section>
 
@@ -287,14 +292,14 @@ footer{padding:64px var(--pad) 40px;display:flex;flex-direction:column;gap:32px}
 <div class="overlay" id="menu" role="dialog" aria-modal="true" aria-label="Menú">
   <div class="top">
     <span class="logo">threesixty<span class="pt" aria-hidden="true"></span></span>
-    <button class="close" id="closeMenu" type="button" aria-label="Cerrar menú">✕</button>
+    <button class="close" id="closeMenu" type="button" aria-label="Cerrar menú" data-en-aria="Close menu">✕</button>
   </div>
   <ul>
-    <li><a href="#proyectos">Proyectos</a></li>
-    <li><a href="#caso">Caso real</a></li>
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#contacto">¿Le damos?</a></li>
-    <li><a href="/sessions">Sessions <small>sesiones personales →</small></a></li>
+    <li><a href="#proyectos" data-en="Projects">Proyectos</a></li>
+    <li><a href="#caso" data-en="Real case">Caso real</a></li>
+    <li><a href="#servicios" data-en="Services">Servicios</a></li>
+    <li><a href="#contacto" data-en="Shall we?">¿Le damos?</a></li>
+    <li><a href="/sessions">Sessions <small data-en="personal sessions →">sesiones personales →</small></a></li>
   </ul>
 </div>
 
@@ -303,50 +308,50 @@ footer{padding:64px var(--pad) 40px;display:flex;flex-direction:column;gap:32px}
 <section id="proyectos" class="block wrap">
   <div id="catView">
     <div class="head" style="margin-bottom:36px">
-      <div class="l"><span class="mono">01 — PROYECTOS</span><h2 class="big">Proyectos</h2></div>
-      <span class="r">Elige una categoría para ver el trabajo.</span>
+      <div class="l"><span class="mono" data-en="01 — PROJECTS">01 — PROYECTOS</span><h2 class="big" data-en="Projects">Proyectos</h2></div>
+      <span class="r" data-en="Pick a category to see the work.">Elige una categoría para ver el trabajo.</span>
     </div>
     <div class="grid" id="cats"></div>
   </div>
   <div id="itemView" hidden>
     <div class="head" style="margin-bottom:36px">
-      <div class="l"><button class="pill" id="backCats" type="button" style="align-self:flex-start">← PROYECTOS</button><h2 class="big" id="catTitle"></h2></div>
+      <div class="l"><button class="pill" id="backCats" type="button" style="align-self:flex-start" data-en="← PROJECTS">← PROYECTOS</button><h2 class="big" id="catTitle"></h2></div>
       <span class="r" id="catCount"></span>
     </div>
     <div class="items" id="items"></div>
     <div class="next">
-      <div class="head"><div class="l"><span class="mono">SIGUE VIENDO</span><h3 class="nextTitle">Otros proyectos</h3></div>
-        <button class="pill" id="backCats2" type="button">← TODOS LOS PROYECTOS</button></div>
+      <div class="head"><div class="l"><span class="mono" data-en="KEEP LOOKING">SIGUE VIENDO</span><h3 class="nextTitle" data-en="Other projects">Otros proyectos</h3></div>
+        <button class="pill" id="backCats2" type="button" data-en="← ALL PROJECTS">← TODOS LOS PROYECTOS</button></div>
       <div class="grid nextGrid" id="nextCats"></div>
     </div>
   </div>
 </section>
-<button class="floatBack" id="floatBack" type="button" hidden>← Proyectos</button>
+<button class="floatBack" id="floatBack" type="button" hidden data-en="← Projects">← Proyectos</button>
 
 <!-- ============ 02 · CONOCE A THE TACO SHOP ============ -->
 <!-- PENDIENTE: confirmar permiso del dueño para mostrar nombre y números -->
 <section id="caso" class="block wrap" style="gap:32px">
-  <span class="mono">02 — CASO REAL</span>
+  <span class="mono" data-en="02 — REAL CASE">02 — CASO REAL</span>
   <div class="case">
     <div class="reel" id="reel"><span class="mono" style="color:#EFEDE8;text-align:center;padding:16px">[ REEL DE TORTILLAS · VERTICAL 9:16 ]</span></div>
     <div class="right">
       <div style="display:flex;flex-direction:column;gap:10px">
-        <span class="mono">TAQUERÍA · HUMBLE, TX</span>
+        <span class="mono" data-en="TAQUERIA · HUMBLE, TX">TAQUERÍA · HUMBLE, TX</span>
         <h3>The Taco Shop</h3>
       </div>
       <ol class="steps">
-        <li><span class="mono">RUMBO</span><span>Entendimos qué los hacía distintos: tortillas hechas a mano cada mañana.</span></li>
-        <li><span class="mono">IMAGEN</span><span>Lo grabamos tal cual, sin texto vendiendo.</span></li>
-        <li><span class="mono">MOVIMIENTO</span><span>Un empujón pequeño de pauta local. Los resultados llegaron en días.</span></li>
+        <li><span class="mono" data-en="DIRECTION">RUMBO</span><span data-en="We found what made them different: tortillas made by hand every morning.">Entendimos qué los hacía distintos: tortillas hechas a mano cada mañana.</span></li>
+        <li><span class="mono" data-en="IMAGE">IMAGEN</span><span data-en="We filmed it just as it is, no selling text.">Lo grabamos tal cual, sin texto vendiendo.</span></li>
+        <li><span class="mono" data-en="MOVEMENT">MOVIMIENTO</span><span data-en="A small push of local ads. Results came within days.">Un empujón pequeño de pauta local. Los resultados llegaron en días.</span></li>
       </ol>
       <div style="display:flex;flex-direction:column;gap:10px">
         <div class="stats" id="stats">
-          <div class="stat"><b data-to="25.9" data-dec="1" data-suf="K">0</b><span>views del reel</span></div>
-          <div class="stat"><b data-to="644" data-dec="0">0</b><span>nuevos seguidores</span></div>
-          <div class="stat"><b data-to="0.07" data-dec="2" data-pre="$">$0.00</b><span>por visita al perfil</span></div>
-          <div class="stat"><b data-to="2.1" data-dec="1" data-suf="%">0</b><span>de las personas alcanzadas lo compartió</span></div>
+          <div class="stat"><b data-to="25.9" data-dec="1" data-suf="K">0</b><span data-en="reel views">views del reel</span></div>
+          <div class="stat"><b data-to="644" data-dec="0">0</b><span data-en="new followers">nuevos seguidores</span></div>
+          <div class="stat"><b data-to="0.07" data-dec="2" data-pre="$">$0.00</b><span data-en="per profile visit">por visita al perfil</span></div>
+          <div class="stat"><b data-to="2.1" data-dec="1" data-suf="%">0</b><span data-en="of the people reached shared it">de las personas alcanzadas lo compartió</span></div>
         </div>
-        <button class="pill" id="recount" type="button" style="align-self:flex-start">↻ Ver conteo otra vez</button>
+        <button class="pill" id="recount" type="button" style="align-self:flex-start" data-en="↻ Watch the count again">↻ Ver conteo otra vez</button>
       </div>
     </div>
   </div>
@@ -354,27 +359,27 @@ footer{padding:64px var(--pad) 40px;display:flex;flex-direction:column;gap:32px}
 
 <!-- ============ 03 · SERVICIOS ============ -->
 <section id="servicios" class="block wrap" style="gap:32px">
-  <div class="head"><div class="l"><span class="mono">03 — SERVICIOS</span><h2 class="big">360°</h2></div></div>
+  <div class="head"><div class="l"><span class="mono" data-en="03 — SERVICES">03 — SERVICIOS</span><h2 class="big">360°</h2></div></div>
   <div class="svcs" id="svcs">
     <div class="svc">
-      <button class="svcHead" type="button" aria-expanded="false" aria-controls="svc1"><span class="mono">01</span><span class="svcName">Catálogo</span><span class="svcIco" aria-hidden="true">+</span></button>
-      <div class="svcBody" id="svc1" hidden><p>Fotografía de tu producto lista para tu menú, tu web, tus redes y las apps de delivery.</p><div class="chips"><span class="chip">Foodie</span><span class="chip">Drinks</span><span class="chip">Producto</span><span class="chip">Real Estate</span><span class="chip">Portrait</span></div></div>
+      <button class="svcHead" type="button" aria-expanded="false" aria-controls="svc1"><span class="mono">01</span><span class="svcName" data-en="Catalog">Catálogo</span><span class="svcIco" aria-hidden="true">+</span></button>
+      <div class="svcBody" id="svc1" hidden><p data-en="Photos of your product, ready for your menu, your website, your socials and delivery apps.">Fotografía de tu producto lista para tu menú, tu web, tus redes y las apps de delivery.</p><div class="chips"><span class="chip">Foodie</span><span class="chip">Drinks</span><span class="chip" data-en="Product">Producto</span><span class="chip">Real Estate</span><span class="chip">Portrait</span></div></div>
     </div>
     <div class="svc">
-      <button class="svcHead" type="button" aria-expanded="false" aria-controls="svc2"><span class="mono">02</span><span class="svcName">Blueprint & Rumbo</span><span class="svcIco" aria-hidden="true">+</span></button>
-      <div class="svcBody" id="svc2" hidden><p>Antes de producir, trazamos el plano: a quién le hablas, qué decir y cómo medirlo.</p><div class="chips"><span class="chip">Diagnóstico de marca</span><span class="chip">Público ideal</span><span class="chip">Plan de contenido</span><span class="chip">Métricas</span></div></div>
+      <button class="svcHead" type="button" aria-expanded="false" aria-controls="svc2"><span class="mono">02</span><span class="svcName" data-en="Blueprint & Direction">Blueprint & Rumbo</span><span class="svcIco" aria-hidden="true">+</span></button>
+      <div class="svcBody" id="svc2" hidden><p data-en="Before we produce, we draw the plan: who you're talking to, what to say and how to measure it.">Antes de producir, trazamos el plano: a quién le hablas, qué decir y cómo medirlo.</p><div class="chips"><span class="chip" data-en="Brand review">Diagnóstico de marca</span><span class="chip" data-en="Ideal audience">Público ideal</span><span class="chip" data-en="Content plan">Plan de contenido</span><span class="chip" data-en="Metrics">Métricas</span></div></div>
     </div>
     <div class="svc">
       <button class="svcHead" type="button" aria-expanded="false" aria-controls="svc3"><span class="mono">03</span><span class="svcName">Audiovisual</span><span class="svcIco" aria-hidden="true">+</span></button>
-      <div class="svcBody" id="svc3" hidden><p>Reels, videos de marca y anuncios cortos, grabados y editados para cada plataforma.</p><div class="chips"><span class="chip">Reels</span><span class="chip">Video de marca</span><span class="chip">Anuncios</span><span class="chip">Edición</span></div></div>
+      <div class="svcBody" id="svc3" hidden><p data-en="Reels, brand videos and short ads, shot and edited for each platform.">Reels, videos de marca y anuncios cortos, grabados y editados para cada plataforma.</p><div class="chips"><span class="chip">Reels</span><span class="chip" data-en="Brand video">Video de marca</span><span class="chip" data-en="Ads">Anuncios</span><span class="chip" data-en="Editing">Edición</span></div></div>
     </div>
     <div class="svc">
       <button class="svcHead" type="button" aria-expanded="false" aria-controls="svc4"><span class="mono">04</span><span class="svcName">Web Design</span><span class="svcIco" aria-hidden="true">+</span></button>
-      <div class="svcBody" id="svc4" hidden><p>Páginas rápidas, claras y hechas para que te escriban, desde el teléfono primero.</p><div class="chips"><span class="chip">Sitios web</span><span class="chip">Landing pages</span><span class="chip">WhatsApp integrado</span><span class="chip">Google Business</span></div></div>
+      <div class="svcBody" id="svc4" hidden><p data-en="Fast, clear pages built so people message you, phone first.">Páginas rápidas, claras y hechas para que te escriban, desde el teléfono primero.</p><div class="chips"><span class="chip" data-en="Websites">Sitios web</span><span class="chip">Landing pages</span><span class="chip" data-en="WhatsApp built in">WhatsApp integrado</span><span class="chip">Google Business</span></div></div>
     </div>
     <div class="svc">
       <button class="svcHead" type="button" aria-expanded="false" aria-controls="svc5"><span class="mono">05</span><span class="svcName">Trafficker · Meta Ads</span><span class="svcIco" aria-hidden="true">+</span></button>
-      <div class="svcBody" id="svc5" hidden><p>Pauta en Facebook e Instagram: presupuestos pequeños, audiencias locales y números claros.</p><div class="chips"><span class="chip">Facebook Ads</span><span class="chip">Instagram Ads</span><span class="chip">Audiencias locales</span><span class="chip">Reportes</span></div></div>
+      <div class="svcBody" id="svc5" hidden><p data-en="Facebook and Instagram ads: small budgets, local audiences and clear numbers.">Pauta en Facebook e Instagram: presupuestos pequeños, audiencias locales y números claros.</p><div class="chips"><span class="chip">Facebook Ads</span><span class="chip">Instagram Ads</span><span class="chip" data-en="Local audiences">Audiencias locales</span><span class="chip" data-en="Reports">Reportes</span></div></div>
     </div>
   </div>
 </section>
@@ -383,7 +388,7 @@ footer{padding:64px var(--pad) 40px;display:flex;flex-direction:column;gap:32px}
 <!-- Fotos siempre en blanco y negro (sin efecto de color): images/detras/01.jpg (horizontal 16:9) y 02–04.jpg (verticales 4:5) -->
 <section id="detras" class="block wrap" style="gap:32px">
   <div class="head">
-    <div class="l"><span class="mono">04 — BEHIND THE SCENES</span><h2 class="big">En movimiento</h2></div>
+    <div class="l"><span class="mono">04 — BEHIND THE SCENES</span><h2 class="big" data-en="In motion">En movimiento</h2></div>
   </div>
   <div class="bts">
     <figure class="w"><img src="images/detras/01.jpg" alt="Set de luces en la barra de un restaurante mientras el bartender prepara" loading="lazy"></figure>
@@ -395,12 +400,12 @@ footer{padding:64px var(--pad) 40px;display:flex;flex-direction:column;gap:32px}
     <div class="pair">
       <figure class="then">
         <img src="images/detras/moy-16.jpg" alt="Moy Boskez a los 16 años, grabando con una cámara de video en el Instituto Comercial Panamá" loading="lazy">
-        <figcaption><b>Yo, a mis 16 años</b><span>Instituto Comercial Panamá</span><span>Bachiller en Comercio y Publicidad</span></figcaption>
+        <figcaption><b data-en="Me, at 16">Yo, a mis 16 años</b><span>Instituto Comercial Panamá</span><span data-en="High school diploma in Business and Advertising">Bachiller en Comercio y Publicidad</span></figcaption>
       </figure>
       <img class="face" src="images/detras/moy.jpg" alt="Moy Boskez hoy" loading="lazy">
     </div>
     <div>
-    <p>A los 16 ya andaba con una cámara en la mano. La vida me llevó a las ventas, y 20 años en ventas me enseñaron mucho. Hoy junto las dos cosas: lo cuento a través de mi lente.</p>
+    <p data-en="At 16 I was already walking around with a camera in my hand. Life took me into sales, and 20 years in sales taught me a lot. Today I bring both together: I tell it through my lens.">A los 16 ya andaba con una cámara en la mano. La vida me llevó a las ventas, y 20 años en ventas me enseñaron mucho. Hoy junto las dos cosas: lo cuento a través de mi lente.</p>
     <span class="mono">— MOY BOSKEZ</span>
     </div>
   </div>
@@ -410,7 +415,7 @@ footer{padding:64px var(--pad) 40px;display:flex;flex-direction:column;gap:32px}
 <!-- PENDIENTE: permiso de cada cliente. Para usar el logo real: pon el PNG/SVG en images/logos/
      y cambia el texto por <img src="images/logos/lettys.png" alt="Letty's"> dentro de <div class="clogo"> -->
 <section id="clientes" class="block wrap" style="gap:24px">
-  <div class="head" style="align-items:baseline"><span class="mono">05 — TRABAJOS REALIZADOS PARA</span><span style="font-size:14px;color:var(--muted)">Negocios, franquicias, marcas y real estate</span></div>
+  <div class="head" style="align-items:baseline"><span class="mono" data-en="05 — WORK DONE FOR">05 — TRABAJOS REALIZADOS PARA</span><span style="font-size:14px;color:var(--muted)" data-en="Businesses, franchises, brands and real estate">Negocios, franquicias, marcas y real estate</span></div>
   <div class="logos">
     <div class="clogo"><img src="images/logos/lettys.png" alt="Letty's Authentic Mexican Cocina" loading="lazy"></div>
     <div class="clogo"><img src="images/logos/tacoshop.png" alt="The Taco Shop on First St." loading="lazy"></div>
@@ -424,17 +429,17 @@ footer{padding:64px var(--pad) 40px;display:flex;flex-direction:column;gap:32px}
 
 <!-- ============ 05 · HABLEMOS ============ -->
 <section id="contacto" class="contact">
-  <span class="mono" style="color:#A8A8A3">06 — ¿LE DAMOS?</span>
-  <h2>¿Cuál es tu plan?</h2>
-  <p>Elige una opción y se abre WhatsApp con tu mensaje listo para enviar.</p>
+  <span class="mono" style="color:#A8A8A3" data-en="06 — SHALL WE?">06 — ¿LE DAMOS?</span>
+  <h2 data-en="What's your plan?">¿Cuál es tu plan?</h2>
+  <p data-en="Pick an option and WhatsApp opens with your message ready to send.">Elige una opción y se abre WhatsApp con tu mensaje listo para enviar.</p>
   <div class="opts" id="opts"></div>
-  <div class="me"><img src="images/detras/moy.jpg" alt="" aria-hidden="true"><span>Te respondo yo, no un bot. <b>— Moy</b></span></div>
+  <div class="me"><img src="images/detras/moy.jpg" alt="" aria-hidden="true"><span data-en="You'll hear back from me, not a bot. <b>— Moy</b>">Te respondo yo, no un bot. <b>— Moy</b></span></div>
 </section>
 
 <footer>
   <div class="fTop">
     <div class="fMark" aria-label="threesixty.">threesixty<span class="pt" aria-hidden="true"></span></div>
-    <a class="sesLink" href="/sessions"><b>threesixty</b><i>sessions<span class="dot pt" aria-hidden="true"></span></i><small>Sesiones personales →</small></a>
+    <a class="sesLink" href="/sessions"><b>threesixty</b><i>sessions<span class="dot pt" aria-hidden="true"></span></i><small data-en="Personal sessions →">Sesiones personales →</small></a>
   </div>
   <div class="fBot">
     <span>Moy Boskez | THREESIXTY · Houston, TX</span>
@@ -445,7 +450,7 @@ footer{padding:64px var(--pad) 40px;display:flex;flex-direction:column;gap:32px}
   </div>
 </footer>
 
-<a class="waFloat js-wa" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+<a class="waFloat js-wa" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp" data-en-aria="Message us on WhatsApp">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20l1.1-3.8A8.5 8.5 0 1 1 20 11.5z"/><path d="M9 8.5c0 3.5 2.6 6.5 6.5 6.5l1-1.6-2-1-.9.9c-1-.4-2-1.4-2.4-2.4l.9-.9-1-2-1.6 1z"/></svg>
 </a>
 
@@ -464,13 +469,18 @@ var INSTAGRAM = "https://instagram.com/[TU_USUARIO]";
 //    Cuando tengas el formulario (Google Forms, Typeform…), pega su link aquí.
 var DIAGNOSTICO_URL = "";
 // Opciones del cierre "¿Cuál es tu plan?": texto del botón → mensaje que se abre en WhatsApp
+//    label/msg = español · labelEn/msgEn = inglés (el mensaje llega en el idioma que la persona eligió en la web)
 var OPCIONES = [
-  { label: "Prende el foco\u00a0💡",            msg: "Hola Moy, quiero prender el foco 💡 Tengo ganas de hacer algo nuevo con mi negocio y me gustaría conversarlo." },
-  { label: "Dar un giro\u00a0🧭",             msg: "Hola Moy, quiero darle un giro 🧭 a mi negocio y me gustaría conversarlo." },
-  { label: "Tengo una idea,\u00a0pero…\u00a0🤔",      msg: "Hola Moy, tengo una idea, pero… 🤔 me gustaría contártela y ver cómo aterrizarla." }
+  { label: "Prende el foco\u00a0💡",            msg: "Hola Moy, quiero prender el foco 💡 Tengo ganas de hacer algo nuevo con mi negocio y me gustaría conversarlo.",
+    labelEn: "Turn the light on\u00a0💡",      msgEn: "Hi Moy, I want to turn the light on 💡 I'm ready to try something new with my business and I'd like to talk it through." },
+  { label: "Dar un giro\u00a0🧭",             msg: "Hola Moy, quiero darle un giro 🧭 a mi negocio y me gustaría conversarlo.",
+    labelEn: "Change direction\u00a0🧭",        msgEn: "Hi Moy, I want to take my business in a new direction 🧭 and I'd like to talk it through." },
+  { label: "Tengo una idea,\u00a0pero…\u00a0🤔",      msg: "Hola Moy, tengo una idea, pero… 🤔 me gustaría contártela y ver cómo aterrizarla.",
+    labelEn: "I have an idea,\u00a0but…\u00a0🤔", msgEn: "Hi Moy, I have an idea, but… 🤔 I'd like to tell you about it and see how to make it real." }
 ];
 var MSG_DIAGNOSTICO = "Hola, quiero arrancar con mi negocio. ¿Por dónde empezamos?";
 var MSG_WHATSAPP    = "Hola, me gustaría hablar sobre mi negocio.";
+var MSG_WHATSAPP_EN = "Hi, I'd like to talk about my business.";
 
 // 4) Video del intro (hero-desktop.mp4 / hero-mobile.mp4 en images/). false = solo foto.
 var HERO_VIDEO = true;
@@ -509,7 +519,7 @@ var PROYECTOS = [
     { file: "07.jpg", when: "[Fecha]", brand: "[Cliente]", project: "[Propiedad]" }
   ] },
   { id: "motion", name: "Motion", unit: "videos", tone: ["#2F2F2C","#8C8C86"], items: [
-    { video: "05.mp4", file: "05.jpg", when: "Octubre 2026", brand: "Letty's Authentic Mexican Cocina", project: "Reel · Terraza" },
+    { video: "05.mp4", file: "05.jpg", when: "Octubre 2026", whenEn: "October 2026", brand: "Letty's Authentic Mexican Cocina", project: "Reel · Terraza" },
     { video: "01.mp4", file: "01.jpg", when: "[Fecha]", brand: "[Cliente]", project: "Reel · Broker" },
     { video: "02.mp4", file: "02.jpg", when: "[Fecha]", brand: "[Cliente]", project: "Reel · Broker" },
     { video: "03.mp4", file: "03.jpg", when: "[Fecha]", brand: "[Cliente]", project: "Reel · Real Estate" },
@@ -531,14 +541,23 @@ var PROYECTOS = [
   function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
 
   // enlaces
-  document.querySelectorAll('.js-wa').forEach(function(a){ a.href = wa(MSG_WHATSAPP); });
+  // Idioma: el mismo que en Sessions (se guarda en 'ts-lang' y se comparte entre las dos páginas).
+  // Primera visita: se usa el idioma del teléfono/computadora. Después, lo que la persona eligió con ES | EN.
+  var lang = 'es';
+  try { lang = localStorage.getItem('ts-lang') || (navigator.language || 'es').slice(0,2); } catch(e) {}
+  if (lang !== 'en') lang = 'es';
+  function L(es, en){ return lang === 'en' ? en : es; }
   var opts = document.getElementById('opts');
-  OPCIONES.forEach(function(o){
-    var a = document.createElement('a');
-    a.className = 'opt'; a.href = wa(o.msg); a.target = '_blank'; a.rel = 'noopener';
-    a.innerHTML = '<span>' + o.label + '</span><span class="ar"><span class="d"></span>→</span>';
-    opts.appendChild(a);
-  });
+  function renderLinks(){
+    document.querySelectorAll('.js-wa').forEach(function(a){ a.href = wa(L(MSG_WHATSAPP, MSG_WHATSAPP_EN)); });
+    opts.innerHTML = '';
+    OPCIONES.forEach(function(o){
+      var a = document.createElement('a');
+      a.className = 'opt'; a.href = wa(L(o.msg, o.msgEn || o.msg)); a.target = '_blank'; a.rel = 'noopener';
+      a.innerHTML = '<span>' + L(o.label, o.labelEn || o.label) + '</span><span class="ar"><span class="d"></span>→</span>';
+      opts.appendChild(a);
+    });
+  }
   document.querySelectorAll('.js-diag').forEach(function(a){
     a.href = DIAGNOSTICO_URL || wa(MSG_DIAGNOSTICO);
     a.target = '_blank'; a.rel = 'noopener';
@@ -596,9 +615,9 @@ var PROYECTOS = [
   function makeCat(c, container){
     var b = document.createElement('button');
     b.type = 'button'; b.className = 'cat';
-    b.innerHTML = '<div class="mat"><div class="frame"><div class="pic" style=\'background-image:' + bg('images/proyectos/' + c.id + '/cover-bw.jpg' + V, c.tone) + '\'><div class="clr" style=\'background-image:url("images/proyectos/' + c.id + '/cover.jpg' + V + '")\'></div><span class="count">' + c.items.length + ' ' + (c.unit || 'piezas') + '</span></div></div></div>' +
+    b.innerHTML = '<div class="mat"><div class="frame"><div class="pic" style=\'background-image:' + bg('images/proyectos/' + c.id + '/cover-bw.jpg' + V, c.tone) + '\'><div class="clr" style=\'background-image:url("images/proyectos/' + c.id + '/cover.jpg' + V + '")\'></div><span class="count">' + unit(c) + '</span></div></div></div>' +
       '<div class="catName"><span>' + esc(c.name) + '</span><span aria-hidden="true">→</span></div>';
-    b.setAttribute('aria-label', c.name + ', ' + c.items.length + ' ' + (c.unit || 'piezas'));
+    b.setAttribute('aria-label', c.name + ', ' + unit(c));
     // Clic: la portada pasa de blanco y negro a color y luego se abre la carpeta
     b.addEventListener('click', function(){
       b.classList.add('color');
@@ -607,21 +626,24 @@ var PROYECTOS = [
     });
     container.appendChild(b);
   }
-  PROYECTOS.forEach(function(c){ makeCat(c, cats); });
+  function unit(c){ return c.items.length + ' ' + (c.unit || L('piezas', 'pieces')); }
+  var openC = null;
+  function renderCats(){ cats.innerHTML = ''; PROYECTOS.forEach(function(c){ makeCat(c, cats); }); }
+  renderCats();
   var nextCats = document.getElementById('nextCats'), floatBack = document.getElementById('floatBack');
   function openCat(c){
     document.body.classList.add('in-folder'); floatBack.hidden = false;
     nextCats.innerHTML = '';
     PROYECTOS.forEach(function(o){ if (o.id !== c.id) makeCat(o, nextCats); });
     document.getElementById('catTitle').textContent = c.name;
-    document.getElementById('catCount').textContent = c.items.length + ' ' + (c.unit || 'piezas');
+    document.getElementById('catCount').textContent = unit(c); openC = c;
     // Fotos sin huecos: algunas ocupan 2 columnas para que la última fila quede completa (4 columnas)
     var photos = c.items.filter(function(it){ return !it.video; });
     var wides = (4 - photos.length % 4) % 4;
     photos.forEach(function(it){ it._w = false; });
     photos.filter(function(it){ return it.wide; }).concat(photos).forEach(function(it){ if (wides > 0 && !it._w) { it._w = true; wides--; } });
     function cap(it){
-      var w = clean(it.when), b = clean(it.brand), pr = clean(it.project);
+      var w = clean(lang === 'en' && it.whenEn ? it.whenEn : it.when), b = clean(it.brand), pr = clean(it.project);
       if (!w && !b && !pr) return '';
       return '<figcaption>' + (w ? '<span class="mono">' + esc(w) + '</span>' : '') + (b ? '<b>' + esc(b) + '</b>' : '') + (pr ? '<span>' + esc(pr) + '</span>' : '') + '</figcaption>';
     }
@@ -648,7 +670,7 @@ var PROYECTOS = [
   function closeCat(){
     items.querySelectorAll('video').forEach(function(v){ v.pause(); });
     itemView.hidden = true; catView.hidden = false;
-    document.body.classList.remove('in-folder'); floatBack.hidden = true;
+    document.body.classList.remove('in-folder'); floatBack.hidden = true; openC = null;
     cats.querySelectorAll('.cat').forEach(function(x){ x.classList.remove('color'); });
     document.getElementById('proyectos').scrollIntoView({ behavior: 'smooth' });
   }
@@ -705,6 +727,33 @@ var PROYECTOS = [
     waF.classList.toggle('on', past && !overContact);
   }
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  // ---- Cambio de idioma (ES | EN) ----
+  // Cada texto en español tiene su versión en inglés en data-en (y data-en-aria para lectores de pantalla).
+  var TITLE = { es: document.title, en: 'threesixty. — What you already do well, let it show. Houston, TX' };
+  function applyLang(){
+    document.documentElement.lang = lang;
+    document.title = TITLE[lang];
+    document.querySelectorAll('[data-en]').forEach(function(el){
+      if (el.dataset.es === undefined) el.dataset.es = el.innerHTML;
+      el.innerHTML = lang === 'en' ? el.dataset.en : el.dataset.es;
+    });
+    document.querySelectorAll('[data-en-aria]').forEach(function(el){
+      if (el.dataset.esAria === undefined) el.dataset.esAria = el.getAttribute('aria-label');
+      el.setAttribute('aria-label', lang === 'en' ? el.dataset.enAria : el.dataset.esAria);
+    });
+    document.querySelectorAll('.langSw button').forEach(function(b){
+      var on = b.dataset.l === lang;
+      b.classList.toggle('on', on); b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    renderLinks(); renderCats();
+    if (openC) { document.getElementById('catCount').textContent = unit(openC); }
+    try { localStorage.setItem('ts-lang', lang); } catch(e) {}
+  }
+  document.querySelectorAll('.langSw button').forEach(function(b){
+    b.addEventListener('click', function(){ if (b.dataset.l !== lang) { lang = b.dataset.l; applyLang(); } });
+  });
+  applyLang();
 })();
 </script>
 </body>

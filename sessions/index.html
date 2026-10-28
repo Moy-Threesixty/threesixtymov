@@ -35,6 +35,10 @@ nav a{text-decoration:none}
 nav a.biz{color:var(--muted)}
 .pill{background:transparent;border:1px solid rgba(237,237,237,.35);border-radius:999px;padding:10px 14px;min-height:44px;font-family:'Geist Mono',monospace;font-size:12px;cursor:pointer;transition:background .2s,color .2s}
 .pill:hover{background:var(--ink);color:var(--bg)}
+.langSw{display:flex;border:1px solid rgba(237,237,237,.35);border-radius:999px;padding:3px;gap:2px}
+.langSw button{background:transparent;color:var(--dim);border:0;border-radius:999px;min-width:40px;min-height:38px;font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;cursor:pointer;transition:background .2s,color .2s}
+.langSw button.on{background:var(--ink);color:var(--bg)}
+.langSw button:not(.on):hover{color:var(--ink)}
 .cta{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--bg);text-decoration:none;padding:0 24px;min-height:50px;border-radius:999px;font-weight:500;font-size:15px;transition:transform .2s}
 .cta:hover{transform:translateY(-2px)}
 .cta .d{width:8px;height:8px;border-radius:999px;background:var(--dot)}
@@ -103,7 +107,7 @@ nav a.biz{color:var(--muted)}
     <a class="logo" href="#" id="home" aria-label="threesixty sessions"><b>threesixty</b><i>sessions<span class="pt" aria-hidden="true"></span></i></a>
     <nav aria-label="Sessions">
       <a href="../" class="biz" data-en="For business →" data-es="Para negocios →">For business →</a>
-      <button class="pill" id="lang" type="button">ES</button>
+      <div class="langSw" role="group" aria-label="Language / Idioma"><button type="button" data-l="es" lang="es">ES</button><button type="button" data-l="en" lang="en">EN</button></div>
     </nav>
   </header>
 
@@ -281,7 +285,7 @@ var SESSIONS = [
   window.addEventListener('hashchange', route);
 
   // idioma
-  var langBtn = document.getElementById('lang');
+  var langBtns = document.querySelectorAll('.langSw button');
   function applyLang(){
     document.documentElement.lang = lang;
     document.querySelectorAll('[data-' + lang + ']').forEach(function(el){ el.textContent = el.getAttribute('data-' + lang); });
@@ -295,13 +299,12 @@ var SESSIONS = [
     document.getElementById('stage').setAttribute('aria-label', es ? 'Siguiente foto' : 'Next photo');
     document.getElementById('next').setAttribute('aria-label', es ? 'Siguiente foto' : 'Next photo');
     document.getElementById('prev').setAttribute('aria-label', es ? 'Foto anterior' : 'Previous photo');
-    langBtn.textContent = lang === 'en' ? 'ES' : 'EN';
-    langBtn.setAttribute('aria-label', lang === 'en' ? 'Cambiar a español' : 'Switch to English');
+    langBtns.forEach(function(b){ var on = b.dataset.l === lang; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); });
     updateWA();
     if (cat !== null) document.getElementById('catName').textContent = SESSIONS[cat][lang];
     try { localStorage.setItem('ts-lang', lang); } catch(e) {}
   }
-  langBtn.addEventListener('click', function(){ lang = lang === 'en' ? 'es' : 'en'; applyLang(); });
+  langBtns.forEach(function(b){ b.addEventListener('click', function(){ if (b.dataset.l !== lang) { lang = b.dataset.l; applyLang(); } }); });
 
   applyLang();
   setActive(0);
