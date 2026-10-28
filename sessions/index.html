@@ -70,6 +70,8 @@ nav a.biz{color:var(--muted)}
 .photo.in{animation:pageIn .7s ease both}
 @keyframes pageIn{from{opacity:0;transform:scale(1.015)}to{opacity:1;transform:none}}
 .bookfoot{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.cap .ig{color:var(--ink);text-decoration:none;border-bottom:1px solid currentColor}
+.cap .ig:hover{color:var(--dot)}
 .cap strong{display:block;font-weight:500;font-size:22px;letter-spacing:-.03em;margin-bottom:4px}
 .ctrl{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .arrow{width:48px;height:48px;border-radius:999px;background:transparent;border:1px solid rgba(237,237,237,.35);cursor:pointer;font-size:16px;transition:background .2s,color .2s}
@@ -152,6 +154,19 @@ var WHATSAPP = "18326211206";
 //    - Puedes agregar o quitar fotos copiando una línea { file: ..., title: ..., meta: ... }.
 //    - Si un archivo no existe todavía, se muestra un gris en su lugar.
 var SESSIONS = [
+  { id: "portraits", en: "Portraits", es: "Retratos",
+    subEn: "Personal brand · profile", subEs: "Marca personal · perfil",
+    cover: "images/portraits/cover.jpg",
+    photos: [
+      { file: "images/portraits/01.jpg", title: "Pets lovers", meta: "PORTRAIT · PETS" },
+      { file: "images/portraits/02.jpg", title: "Erika Boskez", meta: "HEADSHOT · WHITE" },
+      { file: "images/portraits/03.jpg", title: "Ode Victoria", meta: "PERSONAL BRAND", ig: "ode.realtor.texas" },
+      { file: "images/portraits/04.jpg", title: "Kids", meta: "PORTRAIT · KIDS" },
+      { file: "images/portraits/05.jpg", title: "Sailin Blanco", meta: "PERSONAL BRAND", ig: "sailinblanco.txbroker" },
+      { file: "images/portraits/06.jpg", title: "Pets lovers", meta: "PORTRAIT · PETS" },
+      { file: "images/portraits/07.jpg", title: "Ode Victoria", meta: "REALTOR", ig: "ode.realtor.texas" },
+      { file: "images/portraits/08.jpg", title: "Iris Puac", meta: "REALTOR", ig: "irismarilurealtor" }
+    ] },
   { id: "maternity", en: "Maternity", es: "Maternidad",
     subEn: "Waiting together", subEs: "Esperándote juntos",
     cover: "images/maternity/cover.jpg",
@@ -169,18 +184,8 @@ var SESSIONS = [
       { file: "images/graduation/03.jpg", title: "[Nombre]", meta: "GRADUATION · [LUGAR], TX · [AÑO]" },
       { file: "images/graduation/04.jpg", title: "[Nombre]", meta: "GRADUATION · [LUGAR], TX · [AÑO]" },
       { file: "images/graduation/05.jpg", title: "[Familia]", meta: "GRADUATION · FAMILY · [LUGAR], TX · [AÑO]" }
-    ] },
-  { id: "portraits", en: "Portraits", es: "Retratos",
-    subEn: "Personal brand · profile", subEs: "Marca personal · perfil",
-    cover: "images/portraits/cover.jpg",
-    photos: [
-      { file: "images/portraits/01.jpg", title: "[Nombre]", meta: "PORTRAIT · PETS · [LUGAR], TX · [AÑO]" },
-      { file: "images/portraits/02.jpg", title: "[Nombre]", meta: "HEADSHOT · [LUGAR], TX · [AÑO]" },
-      { file: "images/portraits/03.jpg", title: "[Nombre]", meta: "PERSONAL BRAND · [LUGAR], TX · [AÑO]" },
-      { file: "images/portraits/04.jpg", title: "[Nombre]", meta: "PORTRAIT · KIDS · [LUGAR], TX · [AÑO]" },
-      { file: "images/portraits/05.jpg", title: "[Nombre]", meta: "PERSONAL BRAND · [LUGAR], TX · [AÑO]" },
-      { file: "images/portraits/06.jpg", title: "[Nombre]", meta: "PORTRAIT · PETS · [LUGAR], TX · [AÑO]" }
     ] }
+
 ];
 
 /* ===================================================================== */
@@ -192,7 +197,7 @@ var SESSIONS = [
   var lang = 'en', active = 0, cat = null, idx = 0;
   var GRAYS = ['linear-gradient(160deg,#2A2A2A,#A0A0A0)','linear-gradient(200deg,#1A1A1A,#8C8C8C)','linear-gradient(140deg,#252525,#9C9C9C)','linear-gradient(120deg,#111,#6A6A6A)'];
   // Versión de archivos: cámbiala si reemplazas una foto con el mismo nombre
-  var V = '?v=20261020a';
+  var V = '?v=20261028a';
   function bgFor(file, i){ return 'url("' + file + V + '"), ' + GRAYS[i % GRAYS.length]; }
 
   try { lang = localStorage.getItem('ts-lang') || (navigator.language || 'en').slice(0,2); } catch(e) {}
@@ -229,7 +234,9 @@ var SESSIONS = [
     var m = p.meta.split(' · ').filter(function(x){ return !/\[/.test(x); }).join(' · ');
     photo.alt = (t ? t + ' — ' : '') + m;
     document.getElementById('pTitle').textContent = t;
-    document.getElementById('pMeta').textContent = m;
+    var pm = document.getElementById('pMeta');
+    pm.textContent = m;
+    if (p.ig) { var a = document.createElement('a'); a.href = 'https://instagram.com/' + p.ig; a.target = '_blank'; a.rel = 'noopener'; a.className = 'ig'; a.textContent = '@' + p.ig; if (m) pm.appendChild(document.createTextNode(' · ')); pm.appendChild(a); }
     document.getElementById('count').textContent = String(idx+1).padStart(2,'0') + ' / ' + String(s.photos.length).padStart(2,'0');
     document.getElementById('catName').textContent = s[lang];
     updateWA();

@@ -273,7 +273,7 @@ footer{padding:64px var(--pad) 40px;display:flex;flex-direction:column;gap:32px}
       <p class="claim">Empezamos donde estás, luego nos movemos.</p>
       <p class="sub" aria-label="Rumbo. Imagen. Movimiento.">Rumbo<span class="pt" aria-hidden="true"></span>Imagen<span class="pt" aria-hidden="true"></span>Movimiento<span class="pt g" aria-hidden="true"></span></p>
     </div>
-    <a class="btn light" href="#contacto">Arranquemos <span class="d"></span></a>
+    <a class="btn light" href="#contacto">¿Le damos? <span class="d"></span></a>
   </div>
 </section>
 
@@ -285,9 +285,9 @@ footer{padding:64px var(--pad) 40px;display:flex;flex-direction:column;gap:32px}
   </div>
   <ul>
     <li><a href="#proyectos">Proyectos</a></li>
-    <li><a href="#caso">The Taco Shop</a></li>
+    <li><a href="#caso">Caso real</a></li>
     <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#contacto">Arranquemos</a></li>
+    <li><a href="#contacto">¿Le damos?</a></li>
     <li><a href="/sessions">Sessions <small>sesiones personales →</small></a></li>
   </ul>
 </div>
@@ -320,7 +320,7 @@ footer{padding:64px var(--pad) 40px;display:flex;flex-direction:column;gap:32px}
 <!-- ============ 02 · CONOCE A THE TACO SHOP ============ -->
 <!-- PENDIENTE: confirmar permiso del dueño para mostrar nombre y números -->
 <section id="caso" class="block wrap" style="gap:32px">
-  <span class="mono">02 — CONOCE A</span>
+  <span class="mono">02 — CASO REAL</span>
   <div class="case">
     <div class="reel" id="reel"><span class="mono" style="color:#EFEDE8;text-align:center;padding:16px">[ REEL DE TORTILLAS · VERTICAL 9:16 ]</span></div>
     <div class="right">
@@ -351,7 +351,7 @@ footer{padding:64px var(--pad) 40px;display:flex;flex-direction:column;gap:32px}
   <div class="head"><div class="l"><span class="mono">03 — SERVICIOS</span><h2 class="big">360°</h2></div></div>
   <div class="svcs" id="svcs">
     <div class="svc">
-      <button class="svcHead" type="button" aria-expanded="false" aria-controls="svc1"><span class="mono">01</span><span class="svcName">Catálogo de productos</span><span class="svcIco" aria-hidden="true">+</span></button>
+      <button class="svcHead" type="button" aria-expanded="false" aria-controls="svc1"><span class="mono">01</span><span class="svcName">Catálogo</span><span class="svcIco" aria-hidden="true">+</span></button>
       <div class="svcBody" id="svc1" hidden><p>Fotografía de tu producto lista para tu menú, tu web, tus redes y las apps de delivery.</p><div class="chips"><span class="chip">Foodie</span><span class="chip">Drinks</span><span class="chip">Producto</span><span class="chip">Real Estate</span><span class="chip">Portrait</span></div></div>
     </div>
     <div class="svc">
@@ -412,8 +412,8 @@ footer{padding:64px var(--pad) 40px;display:flex;flex-direction:column;gap:32px}
 
 <!-- ============ 05 · HABLEMOS ============ -->
 <section id="contacto" class="contact">
-  <span class="mono" style="color:#A8A8A3">06 — ARRANQUEMOS</span>
-  <h2>¿En qué estás trabajando?</h2>
+  <span class="mono" style="color:#A8A8A3">06 — ¿LE DAMOS?</span>
+  <h2>¿Cuál es tu plan?</h2>
   <p>Elige una opción y se abre WhatsApp con tu mensaje listo para enviar.</p>
   <div class="opts" id="opts"></div>
   <div class="me"><img src="images/detras/moy.jpg" alt="" aria-hidden="true"><span>Te respondo yo, no un bot. <b>— Moy</b></span></div>
@@ -448,14 +448,14 @@ var WHATSAPP = "18326211206";
 // 2) Instagram (pega el link completo cuando esté activo)
 var INSTAGRAM = "https://instagram.com/[TU_USUARIO]";
 
-// 3) Botón "Arranquemos": mientras no exista el formulario de 6 preguntas, abre WhatsApp con este mensaje.
+// 3) Botón "¿Le damos?": mientras no exista el formulario de 6 preguntas, abre WhatsApp con este mensaje.
 //    Cuando tengas el formulario (Google Forms, Typeform…), pega su link aquí.
 var DIAGNOSTICO_URL = "";
-// Opciones del cierre "¿En qué estás trabajando?": texto del botón → mensaje que se abre en WhatsApp
+// Opciones del cierre "¿Cuál es tu plan?": texto del botón → mensaje que se abre en WhatsApp
 var OPCIONES = [
-  { label: "Ideas nuevas",                  msg: "Hola Moy, tengo unas ideas nuevas para mi negocio y me gustaría conversarlas." },
+  { label: "Prende el foco\u00a0💡",            msg: "Hola Moy, quiero prender el foco 💡 Tengo ganas de hacer algo nuevo con mi negocio y me gustaría conversarlo." },
   { label: "Dar un giro",                   msg: "Hola Moy, quiero darle un giro a mi negocio y me gustaría conversarlo." },
-  { label: "Ya tengo un proyecto en mente", msg: "Hola Moy, ya tengo un proyecto en mente y me gustaría contártelo." }
+  { label: "Tengo una idea,\u00a0pero…\u00a0🤔",      msg: "Hola Moy, tengo una idea, pero… 🤔 me gustaría contártela y ver cómo aterrizarla." }
 ];
 var MSG_DIAGNOSTICO = "Hola, quiero arrancar con mi negocio. ¿Por dónde empezamos?";
 var MSG_WHATSAPP    = "Hola, me gustaría hablar sobre mi negocio.";
