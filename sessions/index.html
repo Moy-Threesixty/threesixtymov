@@ -173,7 +173,10 @@ var SESSIONS = [
     photos: [
       { file: "images/maternity/01.jpg", title: "[Nombres]", meta: "MATERNITY · [LUGAR], TX · [AÑO]" },
       { file: "images/maternity/02.jpg", title: "[Nombres]", meta: "MATERNITY · [LUGAR], TX · [AÑO]" },
-      { file: "images/maternity/03.jpg", title: "[Nombres]", meta: "MATERNITY · [LUGAR], TX · [AÑO]" }
+      { file: "images/maternity/03.jpg", title: "[Nombres]", meta: "MATERNITY · [LUGAR], TX · [AÑO]" },
+      { file: "images/maternity/04.jpg", title: "[Nombres]", meta: "MATERNITY · [LUGAR], TX · [AÑO]" },
+      { file: "images/maternity/05.jpg", title: "[Nombres]", meta: "MATERNITY · [LUGAR], TX · [AÑO]" },
+      { file: "images/maternity/06.jpg", title: "[Nombres]", meta: "MATERNITY · [LUGAR], TX · [AÑO]" }
     ] },
   { id: "graduation", en: "Graduation", es: "Graduación",
     subEn: "Cap, gown & what comes next", subEs: "Toga, birrete y lo que viene",
@@ -197,7 +200,7 @@ var SESSIONS = [
   var lang = 'en', active = 0, cat = null, idx = 0;
   var GRAYS = ['linear-gradient(160deg,#2A2A2A,#A0A0A0)','linear-gradient(200deg,#1A1A1A,#8C8C8C)','linear-gradient(140deg,#252525,#9C9C9C)','linear-gradient(120deg,#111,#6A6A6A)'];
   // Versión de archivos: cámbiala si reemplazas una foto con el mismo nombre
-  var V = '?v=20261028a';
+  var V = '?v=20261028b';
   function bgFor(file, i){ return 'url("' + file + V + '"), ' + GRAYS[i % GRAYS.length]; }
 
   try { lang = localStorage.getItem('ts-lang') || (navigator.language || 'en').slice(0,2); } catch(e) {}
