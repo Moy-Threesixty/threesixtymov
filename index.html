@@ -268,7 +268,7 @@ footer{padding:64px var(--pad) 40px;display:flex;flex-direction:column;gap:32px}
 
   <header>
     <nav aria-label="Principal">
-      <a href="#proyectos" data-en="Projects">Proyectos</a>
+      <a href="#proyectos" data-en="Work">Work</a>
       <a href="#servicios" data-en="Services">Servicios</a>
       <a href="#contacto" data-en="Contact">Contacto</a>
     </nav>
@@ -295,7 +295,7 @@ footer{padding:64px var(--pad) 40px;display:flex;flex-direction:column;gap:32px}
     <button class="close" id="closeMenu" type="button" aria-label="Cerrar menú" data-en-aria="Close menu">✕</button>
   </div>
   <ul>
-    <li><a href="#proyectos" data-en="Projects">Proyectos</a></li>
+    <li><a href="#proyectos" data-en="Work">Work</a></li>
     <li><a href="#caso" data-en="Real case">Caso real</a></li>
     <li><a href="#servicios" data-en="Services">Servicios</a></li>
     <li><a href="#contacto" data-en="Shall we?">¿Le damos?</a></li>
@@ -308,25 +308,25 @@ footer{padding:64px var(--pad) 40px;display:flex;flex-direction:column;gap:32px}
 <section id="proyectos" class="block wrap">
   <div id="catView">
     <div class="head" style="margin-bottom:36px">
-      <div class="l"><span class="mono" data-en="01 — PROJECTS">01 — PROYECTOS</span><h2 class="big" data-en="Projects">Proyectos</h2></div>
+      <div class="l"><span class="mono" data-en="01 — WORK">01 — WORK</span><h2 class="big" data-en="Work">Work</h2></div>
       <span class="r" data-en="Pick a category to see the work.">Elige una categoría para ver el trabajo.</span>
     </div>
     <div class="grid" id="cats"></div>
   </div>
   <div id="itemView" hidden>
     <div class="head" style="margin-bottom:36px">
-      <div class="l"><button class="pill" id="backCats" type="button" style="align-self:flex-start" data-en="← PROJECTS">← PROYECTOS</button><h2 class="big" id="catTitle"></h2></div>
+      <div class="l"><button class="pill" id="backCats" type="button" style="align-self:flex-start" data-en="← WORK">← WORK</button><h2 class="big" id="catTitle"></h2></div>
       <span class="r" id="catCount"></span>
     </div>
     <div class="items" id="items"></div>
     <div class="next">
-      <div class="head"><div class="l"><span class="mono" data-en="KEEP LOOKING">SIGUE VIENDO</span><h3 class="nextTitle" data-en="Other projects">Otros proyectos</h3></div>
-        <button class="pill" id="backCats2" type="button" data-en="← ALL PROJECTS">← TODOS LOS PROYECTOS</button></div>
+      <div class="head"><div class="l"><span class="mono" data-en="KEEP LOOKING">SIGUE VIENDO</span><h3 class="nextTitle" data-en="More work">Más trabajo</h3></div>
+        <button class="pill" id="backCats2" type="button" data-en="← ALL WORK">← VER TODO</button></div>
       <div class="grid nextGrid" id="nextCats"></div>
     </div>
   </div>
 </section>
-<button class="floatBack" id="floatBack" type="button" hidden data-en="← Projects">← Proyectos</button>
+<button class="floatBack" id="floatBack" type="button" hidden data-en="← Work">← Work</button>
 
 <!-- ============ 02 · CONOCE A THE TACO SHOP ============ -->
 <!-- PENDIENTE: confirmar permiso del dueño para mostrar nombre y números -->
@@ -509,6 +509,17 @@ var PROYECTOS = [
     { file: "06.jpg", when: "[Fecha]", brand: "[Empresa]", project: "[Proyecto]" },
     { file: "07.jpg", when: "[Fecha]", brand: "[Empresa]", project: "[Proyecto]" }
   ] },
+  { id: "pastry", name: "Pastry", tone: ["#4A3F38","#C9B6A4"], items: [
+    { file: "01.jpg", when: "[Fecha]", brand: "Yummy Tummy Bakery", project: "[Producto]" },
+    { file: "02.jpg", when: "[Fecha]", brand: "Yummy Tummy Bakery", project: "[Producto]" },
+    { file: "03.jpg", wide: true, when: "[Fecha]", brand: "Yummy Tummy Bakery", project: "[Producto]" },
+    { file: "04.jpg", when: "[Fecha]", brand: "Yummy Tummy Bakery", project: "[Producto]" },
+    { file: "05.jpg", wide: true, when: "[Fecha]", brand: "Yummy Tummy Bakery", project: "[Producto]" },
+    { file: "06.jpg", when: "[Fecha]", brand: "Yummy Tummy Bakery", project: "[Producto]" },
+    { file: "07.jpg", when: "[Fecha]", brand: "Yummy Tummy Bakery", project: "[Producto]" },
+    { file: "08.jpg", wide: true, when: "[Fecha]", brand: "Yummy Tummy Bakery", project: "[Producto]" },
+    { file: "09.jpg", when: "[Fecha]", brand: "Yummy Tummy Bakery", project: "[Producto]" }
+  ] },
   { id: "realestate", name: "Real Estate", tone: ["#2E3236","#9AA2A8"], items: [
     { file: "01.jpg", when: "[Fecha]", brand: "[Cliente]", project: "[Propiedad]" },
     { file: "02.jpg", when: "[Fecha]", brand: "[Cliente]", project: "[Propiedad]" },
@@ -533,7 +544,7 @@ var PROYECTOS = [
 (function(){
   function grad(t){ return 'linear-gradient(160deg,' + t[0] + ',' + t[1] + ')'; }
   // Versión de los archivos: cámbiala cuando reemplaces una foto/video con el mismo nombre, para que el navegador no muestre la vieja
-  var V = '?v=20261028b';
+  var V = '?v=20261104a';
   // Textos entre [corchetes] son pendientes: no se muestran en la web
   function clean(s){ s = String(s || ''); return /\[/.test(s) ? '' : s; }
   function bg(src, t){ return 'url("' + src + '"), ' + grad(t); }
