@@ -129,8 +129,12 @@ figcaption span{font-size:14px;color:var(--muted)}
 .in-folder #caso,.in-folder #servicios,.in-folder #detras,.in-folder #clientes,.in-folder #contacto{display:none}
 /* Detrás de cámara: siempre en blanco y negro */
 
-.bts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.bts figure{margin:0;border-radius:16px;overflow:hidden;background:#111;aspect-ratio:4/5}
+.bts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.bts figure{margin:0;border-radius:16px;overflow:hidden;background:#111;aspect-ratio:4/5;position:relative}
+.bts figure.then img{object-position:35% 60%}
+.bts figure.then figcaption{position:absolute;left:0;right:0;bottom:0;padding:56px 14px 14px;background:linear-gradient(to top,rgba(10,10,10,.92) 0%,rgba(10,10,10,.75) 45%,rgba(10,10,10,0) 100%);display:flex;flex-direction:column;gap:2px;font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.03em;color:#E4E4E0}
+.bts figure.then figcaption span{color:#E4E4E0;font-family:'Geist Mono',monospace;font-size:10px;line-height:1.35}
+.bts figure.then figcaption b{font-family:'Geist',sans-serif;font-size:15px;font-weight:500;letter-spacing:-.01em;color:#fff}
 .bts figure.w{grid-column:1/-1;aspect-ratio:16/9}
 .bts img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);transition:transform .9s cubic-bezier(.2,.8,.2,1)}
 @media (hover:hover){.bts figure:hover img{transform:scale(1.04)}}
@@ -145,7 +149,7 @@ figcaption span{font-size:14px;color:var(--muted)}
 .btsText .face{width:clamp(170px,19vw,240px);aspect-ratio:4/5;object-fit:cover;border-radius:14px;flex:none;filter:grayscale(1)}
 @media (max-width:699px){.btsText{flex-direction:column;align-items:flex-start}.btsText>.pair{display:grid;grid-template-columns:1fr 1fr;width:100%}.btsText .then,.btsText .face{width:100%}}
 .btsText p{margin:0;margin:0;font-size:clamp(18px,1.6vw,22px);line-height:1.5;font-weight:300;color:#3E3E3A}
-@media (max-width:699px){.bts{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.bts figure:nth-child(3){display:none}}
+@media (max-width:699px){.bts{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.bts figure.then figcaption{padding:40px 10px 10px}.bts figure.then figcaption b{font-size:13px}.bts figure.then figcaption span{font-size:9px}.bts figure.then figcaption span:last-child{display:none}.btsText .face{width:62%!important}}
 .next{margin-top:96px;padding-top:40px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:28px}
 .nextTitle{margin:0;font-weight:500;font-size:clamp(30px,3.6vw,48px);letter-spacing:-.04em;line-height:1}
 .nextGrid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
@@ -392,18 +396,16 @@ footer{padding:64px var(--pad) 40px;display:flex;flex-direction:column;gap:32px}
   </div>
   <div class="bts">
     <figure class="w"><img src="images/detras/01.jpg" alt="Set de luces en la barra de un restaurante mientras el bartender prepara" loading="lazy"></figure>
+    <figure class="then">
+      <img src="images/detras/moy-16.jpg" alt="Moy Boskez a los 16 años, grabando con una cámara de video en el Instituto Comercial Panamá" loading="lazy">
+      <figcaption><b data-en="Me, at 16">Yo, a mis 16 años</b><span>Instituto Comercial Panamá</span><span data-en="High school diploma in Business and Advertising">Bachiller en Comercio y Publicidad</span></figcaption>
+    </figure>
     <figure><img src="images/detras/02.jpg" alt="Moy Boskez fotografiando en una taquería" loading="lazy"></figure>
     <figure><img src="images/detras/03.jpg" alt="Cámara en rig fotografiando un pastel" loading="lazy"></figure>
     <figure><img src="images/detras/04.jpg?v=2" alt="Moy Boskez en la barra de un restaurante" loading="lazy"></figure>
   </div>
   <div class="btsText">
-    <div class="pair">
-      <figure class="then">
-        <img src="images/detras/moy-16.jpg" alt="Moy Boskez a los 16 años, grabando con una cámara de video en el Instituto Comercial Panamá" loading="lazy">
-        <figcaption><b data-en="Me, at 16">Yo, a mis 16 años</b><span>Instituto Comercial Panamá</span><span data-en="High school diploma in Business and Advertising">Bachiller en Comercio y Publicidad</span></figcaption>
-      </figure>
-      <img class="face" src="images/detras/moy.jpg" alt="Moy Boskez hoy" loading="lazy">
-    </div>
+    <img class="face" src="images/detras/moy.jpg" alt="Moy Boskez hoy" loading="lazy">
     <div>
     <p data-en="At 16 I was already walking around with a camera in my hand. Life took me into sales, and 20 years in sales taught me a lot. Today I bring both together: I tell it through my lens.">A los 16 ya andaba con una cámara en la mano. La vida me llevó a las ventas, y 20 años en ventas me enseñaron mucho. Hoy junto las dos cosas: lo cuento a través de mi lente.</p>
     <span class="mono">— MOY BOSKEZ</span>
